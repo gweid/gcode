@@ -7,7 +7,7 @@ module.exports = (app) => {
 
   app.use(
     koaNunjucks({
-      ext: 'tpl',
+      ext: 'html',
       // 设置模板目录
       path: path.resolve(process.cwd(), `.${sep}app${sep}public`),
       nunjucksConfig: {
