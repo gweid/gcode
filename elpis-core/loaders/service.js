@@ -32,7 +32,7 @@ module.exports = (app) => {
     // 使得可以：custom.customService 这样进行使用
     nameList.forEach((item, index) => {
       if (index === nameList.length - 1) {
-        const ServiceModule = require(file)(app);
+        const ServiceModule = require(path.resolve(file))(app);
         tempService[item] = new ServiceModule();
       } else {
         if (!tempService[item]) {

@@ -32,7 +32,7 @@ module.exports = (app) => {
     // 使得可以：custom.customController 这样进行使用
     nameList.forEach((item, index) => {
       if (index === nameList.length - 1) {
-        const ControllerModule = require(file)(app);
+        const ControllerModule = require(path.resolve(file))(app);
         tempMiddleware[item] = new ControllerModule();
       } else {
         if (!tempController[item]) {

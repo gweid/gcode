@@ -32,7 +32,7 @@ module.exports = (app) => {
     // 使得可以：custom.customMiddleware 这样进行使用
     nameList.forEach((item, index) => {
       if (index === nameList.length - 1) {
-        tempMiddleware[item] = require(file)(app);
+        tempMiddleware[item] = require(path.resolve(file))(app);
       } else {
         if (!tempMiddleware[item]) {
           tempMiddleware[item] = {};
