@@ -23,7 +23,7 @@ module.exports = (app) => {
     name = name.replace(/[-_](\w)/g, (_, c) => (c ? c.toUpperCase() : ''));
 
     // 过滤 app 已经存在的 key
-    if (name in app) {
+    if (Object.hasOwn(app, name)) {
       console.log(`[extend load error] name: ${name} is already in app`);
       return;
     }
