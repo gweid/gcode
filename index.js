@@ -3,7 +3,7 @@ const ElpisCore = require('./elpis-core');
 
 const { sep } = path;
 
-const middlewareLoaderDir = path.resolve(process.cwd(), `.${sep}middleware-loader`);
+const middlewareLoaderDir = path.resolve(process.cwd(), `.${sep}app${sep}middleware-loader`);
 
 ElpisCore.start({
   name: 'Elpis',

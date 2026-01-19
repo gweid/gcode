@@ -52,16 +52,18 @@ function start(options = {}) {
 
   // 注册全局中间件（即允许自定义 elpis 中间件 loader）
   const middlewareLoaderDir = options.middlewareLoaderDir;
-  const middlewareLoaderList = glob.sync(path.resolve(middlewareLoaderDir), `.${sep}**${sep}*.js`);
-  if (middlewareLoaderList.length > 0) {
-    middlewareLoaderList.forEach((file) => {
-      try {
-        require(path.resolve(file))(app);
-      } catch (error) {
-        console.log('[exception] there is no global middleware file');
-      }
-    });
-    console.log(`-- [start] load custom middleware loader done --`);
+  if (middlewareLoaderDir) {
+    const middlewareLoaderList = glob.sync(path.resolve(middlewareLoaderDir), `.${sep}**${sep}*.js`);
+    if (middlewareLoaderList.length > 0) {
+      middlewareLoaderList.forEach((file) => {
+        try {
+          require(path.resolve(file))(app);
+        } catch (error) {
+          console.log('[exception] there is no global middleware file');
+        }
+      });
+      console.log(`-- [start] load custom middleware loader done --`);
+    }
   }
 
   // 注册路由
