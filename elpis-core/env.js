@@ -7,7 +7,7 @@ module.exports = (app) => {
       return process.env._ENV === 'test';
     },
     isProd() {
-      return process.env._ENV === 'pord';
+      return process.env._ENV === 'prod';
     },
     getEnv() {
       return process.env._ENV || 'local';
