@@ -1,5 +1,6 @@
 const koa = require('koa');
 const path = require('path');
+const glob = require('glob');
 const env = require('./env');
 const middlewareLoader = require('./loaders/middleware');
 const routerLoader = require('./loaders/router');
@@ -50,12 +51,17 @@ function start(options = {}) {
   console.log(`-- [start] load extend done --`);
 
   // 注册全局中间件（即允许自定义 elpis 中间件 loader）
-  // 默认规定写在 app/middleware.js 文件
-  try {
-    require(path.resolve(app.businessPath, `.${sep}middleware.js`))(app);
-    console.log(`-- [start] load global middleware done --`);
-  } catch (error) {
-    console.log('[exception] there is no global middleware file');
+  const middlewareLoaderDir = options.middlewareLoaderDir;
+  const middlewareLoaderList = glob.sync(path.resolve(middlewareLoaderDir), `.${sep}**${sep}*.js`);
+  if (middlewareLoaderList.length > 0) {
+    middlewareLoaderList.forEach((file) => {
+      try {
+        require(path.resolve(file))(app);
+      } catch (error) {
+        console.log('[exception] there is no global middleware file');
+      }
+    });
+    console.log(`-- [start] load custom middleware loader done --`);
   }
 
   // 注册路由
