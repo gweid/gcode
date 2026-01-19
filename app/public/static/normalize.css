@@ -1,0 +1,101 @@
+/* ====================
+   现代通用 CSS 初始化样式
+   ==================== */
+
+/* 1. 全局盒模型设置：确保 padding 和 border 不会撑大元素宽度 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. 移除默认内外边距 */
+body,
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, li, dl, dt, dd,
+blockquote, figure, figcaption,
+pre, code, hr, fieldset, legend, 
+th, td, form, input, textarea, button {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. 字体设置：优先使用系统原生字体，加载快且在各平台显示清晰 */
+html {
+  /* 防止移动端点击高亮背景色 */
+  -webkit-tap-highlight-color: transparent;
+  /* 字体平滑渲染 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  /* 适配 Mac 和 Windows 的常用系统字体栈 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.5; /* 推荐行高 */
+  color: #333;
+  background-color: #fff;
+}
+
+/* 4. 列表样式：移除默认的小圆点 */
+ul, ol {
+  list-style: none;
+}
+
+/* 5. 链接样式：移除下划线，颜色继承 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 6. 图片样式：解决图片底部留白问题，防止图片撑破容器 */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 7. 表单元素：移除默认样式，统一外观 */
+input, button, textarea, select {
+  font: inherit; /* 继承 body 字体 */
+  color: inherit;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+/* 8. 按钮样式 */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* 9. 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; /* 根据需要可改为 semi-bold */
+  line-height: 1.2;
+}
+
+/* 10. 其他常用重置 */
+b, strong {
+  font-weight: bolder;
+}
+
+code, kbd, samp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 隐藏滚动条但保留滚动功能 (可选，常用于移动端) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
