@@ -1,0 +1,19 @@
+const path = require('path');
+
+const { sep } = path;
+
+module.exports = (app) => {
+  const koaNunjucks = require('koa-nunjucks-2');
+
+  app.use(
+    koaNunjucks({
+      ext: 'tpl',
+      // 设置模板目录
+      path: path.resolve(process.cwd(), `.${sep}app${sep}public`),
+      nunjucksConfig: {
+        noCache: true, // 开发环境不缓存
+        trimBlocks: true, // 自动去除块级标签后的换行
+      },
+    }),
+  );
+};

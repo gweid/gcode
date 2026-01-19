@@ -33,7 +33,7 @@ module.exports = (app) => {
     nameList.forEach((item, index) => {
       if (index === nameList.length - 1) {
         const ControllerModule = require(path.resolve(file))(app);
-        tempMiddleware[item] = new ControllerModule();
+        tempController[item] = new ControllerModule();
       } else {
         if (!tempController[item]) {
           tempController[item] = {};

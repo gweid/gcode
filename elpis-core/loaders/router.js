@@ -17,8 +17,7 @@ module.exports = (app) => {
   const router = new KoaRouter();
 
   // 注册所有路由
-
-  const fileList = glob.sync(path.resolve(routerPath), `.${sep}**${sep}*.js`);
+  const fileList = glob.sync(path.resolve(routerPath, `.${sep}**${sep}*.js`));
 
   fileList.forEach((file) => {
     require(path.resolve(file))(app, router);

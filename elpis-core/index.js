@@ -53,7 +53,7 @@ function start(options = {}) {
   // 注册全局中间件（即允许自定义 elpis 中间件 loader）
   const middlewareLoaderDir = options.middlewareLoaderDir;
   if (middlewareLoaderDir) {
-    const middlewareLoaderList = glob.sync(path.resolve(middlewareLoaderDir), `.${sep}**${sep}*.js`);
+    const middlewareLoaderList = glob.sync(path.resolve(middlewareLoaderDir, `.${sep}**${sep}*.js`));
     if (middlewareLoaderList.length > 0) {
       middlewareLoaderList.forEach((file) => {
         try {
