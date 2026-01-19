@@ -44,6 +44,7 @@
     "nodemon": "^1.19.2",
     "path": "^0.12.7",
     "pinia": "~2.1.6",
+    "prettier": "^3.8.0",
     "superagent": "~8.1.2",
     "vue": "3.3.4",
     "vue-json-viewer": "3.0.4",
