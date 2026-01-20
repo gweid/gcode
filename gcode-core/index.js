@@ -1,6 +1,5 @@
 const koa = require('koa');
 const path = require('path');
-const glob = require('glob');
 const env = require('./env');
 const middlewareLoader = require('./loaders/middleware');
 const routerLoader = require('./loaders/router');
@@ -50,20 +49,12 @@ function start(options = {}) {
   extendLoader(app);
   console.log(`-- [start] load extend done --`);
 
-  // 注册全局中间件（即允许自定义 elpis 中间件 loader）
-  const middlewareLoaderDir = options.middlewareLoaderDir;
-  if (middlewareLoaderDir) {
-    const middlewareLoaderList = glob.sync(path.resolve(middlewareLoaderDir, `.${sep}**${sep}*.js`));
-    if (middlewareLoaderList.length > 0) {
-      middlewareLoaderList.forEach((file) => {
-        try {
-          require(path.resolve(file))(app);
-        } catch (error) {
-          console.log('[exception] there is no global middleware file');
-        }
-      });
-      console.log(`-- [start] load custom middleware loader done --`);
-    }
+  // 注册业务全局中间件（用户自定义 middleware.js 文件）
+  try {
+    require(path.resolve(app.businessPath, `.${sep}middleware.js`))(app);
+    console.log(`-- [start] load global business middleware done -- `);
+  } catch (error) {
+    console.log('[exception] there is no global business middleware file');
   }
 
   // 注册路由
