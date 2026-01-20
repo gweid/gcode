@@ -1,4 +1,1 @@
-[2026-01-20T21:12:22.741] [INFO] default - [
-  { id: 1, name: 'Project Alpha', desc: 'First project' },
-  { id: 2, name: 'Project Beta', desc: 'Second project' }
-]
+[2026-01-20T21:12:22.741] [INFO] default - 123
