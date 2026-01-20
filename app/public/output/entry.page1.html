@@ -9,8 +9,16 @@
   <h2>app: {{app}}</h2>
   <h2 id="name">{{name}}</h2>
 
-  <script type="text/javascript">
+  <div>------------------- api ----------------------</div>
 
+  <button onclick="sendRequest()">发送请求</button>
+
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+  <script type="text/javascript">
+    async function sendRequest() {
+      const res = await axios.get('/api/project/list');
+      console.log(res.data);
+    }
   </script>
 </body>
 </html>
