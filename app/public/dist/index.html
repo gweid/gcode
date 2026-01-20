@@ -15,9 +15,20 @@
   <button onclick="sendPostRequest()">发送 post 请求</button>
 
   <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-md5@0.8.3/src/md5.min.js"></script>
   <script type="text/javascript">
+
+    const signKey = 'sk-ghhutyhdhb09877659iudn';
+    const st = Date.now();
+    const sSign = md5(`${signKey}_${st}`);
+
     async function sendRequest() {
-      const res = await axios.get('/api/project/list');
+      const res = await axios.get('/api/project/list', {
+        headers: {
+          s_sign: sSign,
+          s_t: st
+        }
+      });
       console.log(res.data);
     }
 

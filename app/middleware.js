@@ -32,4 +32,7 @@ module.exports = (app) => {
 
   // 错误处理中间件
   app.use(app.middlewares.errorHandler);
+
+  // api 签名验证中间件
+  app.use(app.middlewares.apiSignVerify);
 };

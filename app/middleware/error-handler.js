@@ -24,7 +24,7 @@ module.exports = (app) => {
 
       const resBody = {
         success: false,
-        code: 50000,
+        code: 40000,
         message: '请求错误，请稍后重试',
       };
 
