@@ -1,10 +1,9 @@
 const path = require('path');
+const koaNunjucks = require('koa-nunjucks-2');
 
 const { sep } = path;
 
 module.exports = (app) => {
-  const koaNunjucks = require('koa-nunjucks-2');
-
   app.use(
     koaNunjucks({
       ext: 'html',

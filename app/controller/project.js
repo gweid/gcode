@@ -10,5 +10,9 @@ module.exports = (app) => {
 
       this.success(ctx, res);
     }
+
+    async updateProject(ctx) {
+      this.success(ctx);
+    }
   };
 };

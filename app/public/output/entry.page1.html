@@ -11,12 +11,18 @@
 
   <div>------------------- api ----------------------</div>
 
-  <button onclick="sendRequest()">发送请求</button>
+  <button onclick="sendRequest()">发送get请求</button>
+  <button onclick="sendPostRequest()">发送 post 请求</button>
 
   <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
   <script type="text/javascript">
     async function sendRequest() {
       const res = await axios.get('/api/project/list');
+      console.log(res.data);
+    }
+
+    async function sendPostRequest() {
+      const res = await axios.post('/api/project/update', { foo: 'bar' });
       console.log(res.data);
     }
   </script>
