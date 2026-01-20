@@ -3,8 +3,6 @@ module.exports = (app) => {
 
   return class ProjectController extends BaseController {
     async getList(ctx) {
-      console.log(this.services);
-
       const { project: projectService } = this.services;
       const res = await projectService.getList();
 
