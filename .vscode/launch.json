@@ -7,11 +7,11 @@
     {
       "name": "Launch via NPM",
       "request": "launch",
+      "runtimeExecutable": "npm",
       "runtimeArgs": [
         "run",
         "debug"
       ],
-      "runtimeExecutable": "npm",
       "skipFiles": [
         "<node_internals>/**"
       ],
