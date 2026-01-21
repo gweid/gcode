@@ -23,10 +23,15 @@
     const sSign = md5(`${signKey}_${st}`);
 
     async function sendRequest() {
-      const res = await axios.get('/api/project/list', {
+      const res = await axios.request({
+        method: 'get',
+        url: '/api/project/list',
         headers: {
           s_sign: sSign,
           s_t: st
+        },
+        params: {
+          proj_key: '1'
         }
       });
       console.log(res.data);

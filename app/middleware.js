@@ -35,4 +35,7 @@ module.exports = (app) => {
 
   // api 签名验证中间件
   app.use(app.middlewares.apiSignVerify);
+
+  // 参数校验中间件
+  app.use(app.middlewares.apiParamsVerify);
 };
