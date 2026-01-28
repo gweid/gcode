@@ -7,6 +7,6 @@ const middlewareLoaderDir = path.resolve(process.cwd(), `.${sep}app${sep}middlew
 
 GCodeCore.start({
   name: 'GCode',
-  homePage: '/view/index',
+  homePage: '/view/404',
   middlewareLoaderDir, // 自定义 loader 路径
 });

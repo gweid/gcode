@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -89,6 +90,14 @@ module.exports = {
       template: path.resolve(process.cwd(), './app/public/entry-tpl.html'),
       // 要注入的代码（与多页面打包入口 entry 对应）
       chunks: ['entry.page2'],
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(process.cwd(), './app/public/404.html'),
+          to: path.resolve(process.cwd(), './app/public/dist'),
+        },
+      ],
     }),
   ],
   optimization: {},

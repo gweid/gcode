@@ -12,7 +12,7 @@ module.exports = (app) => {
       // 第二个对象，是传入参数，可以动态传参到模板中
       await ctx.render(`dist/${ctx.params.page}`, {
         app: app.options?.name,
-        env: app.env.get(),
+        env: app.env.getEnv(),
         options: JSON.stringify(app.options),
       });
     }
