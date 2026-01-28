@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { addTag } from '@utils/tools';
 
 const content = ref('');
 </script>
@@ -8,7 +9,7 @@ const content = ref('');
   <div class="wrapper">
     <h1>Page 1</h1>
     <input v-model="content" />
-    <p>{{ content }}</p>
+    <p>{{ content ? addTag(content) : '' }}</p>
   </div>
 </template>
 

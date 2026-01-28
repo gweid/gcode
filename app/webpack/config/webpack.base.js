@@ -37,6 +37,10 @@ const baseConfig = {
     extensions: ['.js', '.vue', '.css', '.less'],
     alias: {
       '@pages': path.resolve(process.cwd(), './app/pages'),
+      '@assets': path.resolve(process.cwd(), './app/assets'),
+      '@components': path.resolve(process.cwd(), './app/components'),
+      '@stores': path.resolve(process.cwd(), './app/stores'),
+      '@utils': path.resolve(process.cwd(), './app/utils'),
     },
   },
   module: {
