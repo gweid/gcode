@@ -1,14 +1,30 @@
 const path = require('path');
+const glob = require('glob');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+const entryPages = {};
+const htmlWebpackPluginList = [];
+
+// 获取 app/pages 目录下所有的入口文件（固定格式：entry.xxx.js）
+const entryFiles = glob.sync(path.resolve(process.cwd(), './app/pages/**/entry.*.js'));
+
+entryFiles.forEach((file) => {
+  const entryName = path.basename(file, '.js'); // 获取文件名作为入口名称
+  entryPages[entryName] = file;
+  htmlWebpackPluginList.push(
+    new HtmlWebpackPlugin({
+      filename: path.resolve(process.cwd(), `./app/public/dist/${entryName}.html`),
+      template: path.resolve(process.cwd(), './app/public/entry-tpl.html'),
+      chunks: [entryName],
+    }),
+  );
+});
+
 module.exports = {
-  entry: {
-    'entry.page1': path.resolve(process.cwd(), './app/pages/page1/entry.page1.js'),
-    'entry.page2': path.resolve(process.cwd(), './app/pages/page2/entry.page2.js'),
-  },
+  entry: entryFiles,
   output: {
     filename: 'js/[name]_[chunkhash:8].bundle.js',
     path: path.resolve(process.cwd(), './app/public/dist/prod'),
@@ -83,14 +99,7 @@ module.exports = {
       template: path.resolve(process.cwd(), './app/public/entry-tpl.html'),
       chunks: ['entry.page1'],
     }),
-    new HtmlWebpackPlugin({
-      // 产物输出地址
-      filename: path.resolve(process.cwd(), './app/public/dist/entry.page2.html'),
-      // 使用的模板文件
-      template: path.resolve(process.cwd(), './app/public/entry-tpl.html'),
-      // 要注入的代码（与多页面打包入口 entry 对应）
-      chunks: ['entry.page2'],
-    }),
+    ...htmlWebpackPluginList,
     new CopyPlugin({
       patterns: [
         {
