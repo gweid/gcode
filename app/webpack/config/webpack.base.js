@@ -23,8 +23,8 @@ entryFiles.forEach((file) => {
   );
 });
 
-module.exports = {
-  entry: entryFiles,
+const baseConfig = {
+  entry: entryPages,
   output: {
     filename: 'js/[name]_[chunkhash:8].bundle.js',
     path: path.resolve(process.cwd(), './app/public/dist/prod'),
@@ -94,11 +94,6 @@ module.exports = {
       __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false', // vue 禁用生产环境显示“水合”信息
     }),
     // 使用 HtmlWebpackPlugin，但是这个多页面，有几个页面就需要 new 几个 HTMLWebpackPlugin
-    new HtmlWebpackPlugin({
-      filename: path.resolve(process.cwd(), './app/public/dist/entry.page1.html'),
-      template: path.resolve(process.cwd(), './app/public/entry-tpl.html'),
-      chunks: ['entry.page1'],
-    }),
     ...htmlWebpackPluginList,
     new CopyPlugin({
       patterns: [
@@ -111,3 +106,5 @@ module.exports = {
   ],
   optimization: {},
 };
+
+module.exports = baseConfig;
