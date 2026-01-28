@@ -1,8 +1,8 @@
 const webpack = require('webpack');
 
-const webpackBaseConfig = require('./config/webpack.base');
+const webpackProdConfig = require('./config/webpack.prod.js');
 
-webpack(webpackBaseConfig, (err, stats) => {
+webpack(webpackProdConfig, (err, stats) => {
   if (err) {
     console.log(err);
     return;
