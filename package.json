@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky install",
     "lint": "eslint --ext .js,.vue,.ts,.tsx .",
     "dev": "cross-env _ENV=local nodemon ./index.js",
     "test": "cross-env _ENV=test node ./index.js",
