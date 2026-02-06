@@ -1,5 +1,5 @@
 const path = require('path');
-const GCodeCore = require('./gcode-core');
+const GCodeCore = require('./core');
 
 const { sep } = path;
 
