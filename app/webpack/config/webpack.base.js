@@ -8,8 +8,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 const entryPages = {};
 const htmlWebpackPluginList = [];
 
-// 获取 app/pages 目录下所有的入口文件（固定格式：entry.xxx.js）
-const entryFiles = glob.sync(path.resolve(process.cwd(), './app/pages/**/entry.*.js'));
+// 获取 app/src 目录下所有的入口文件（固定格式：entry.xxx.js）
+const entryFiles = glob.sync(path.resolve(process.cwd(), './app/src/**/entry.*.js'));
 
 entryFiles.forEach((file) => {
   const entryName = path.basename(file, '.js'); // 获取文件名作为入口名称
@@ -29,11 +29,11 @@ const webpackBaseConfig = {
   resolve: {
     extensions: ['.js', '.vue', '.css', '.less'],
     alias: {
-      '@pages': path.resolve(process.cwd(), './app/pages'),
-      '@assets': path.resolve(process.cwd(), './app/assets'),
-      '@components': path.resolve(process.cwd(), './app/components'),
-      '@stores': path.resolve(process.cwd(), './app/stores'),
-      '@utils': path.resolve(process.cwd(), './app/utils'),
+      '@src': path.resolve(process.cwd(), './app/src'),
+      '@assets': path.resolve(process.cwd(), './app/src/assets'),
+      '@component': path.resolve(process.cwd(), './app/src/component'),
+      '@store': path.resolve(process.cwd(), './app/src/store'),
+      '@utils': path.resolve(process.cwd(), './app/src/utils'),
     },
   },
   module: {
@@ -44,7 +44,7 @@ const webpackBaseConfig = {
       },
       {
         test: /\.js$/,
-        include: [path.resolve(process.cwd(), './app/pages')],
+        include: [path.resolve(process.cwd(), './app/src')],
         use: 'babel-loader',
       },
       {

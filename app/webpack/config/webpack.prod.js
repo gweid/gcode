@@ -36,7 +36,7 @@ const prodConfig = {
       },
       {
         test: /\.js$/,
-        include: [path.resolve(process.cwd(), './app/pages')],
+        include: [path.resolve(process.cwd(), './app/src')],
         use: [
           {
             loader: 'thread-loader',
