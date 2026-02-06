@@ -10,7 +10,7 @@ const baseConfig = require('./webpack.base.js');
 const prodConfig = {
   mode: 'production',
   output: {
-    filename: 'js/[name]_[chunkhash:8].bundle.js',
+    filename: 'js/[name]_[contenthash:8].bundle.js',
     path: path.resolve(process.cwd(), './app/public/dist/prod'),
     // 打包出来的 html 文件引用资源的公共路径前缀
     // <script src="/dist/prod/js/entry.page1_xxxxxxxx.bundle.js"></script>

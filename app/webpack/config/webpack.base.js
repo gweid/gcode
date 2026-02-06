@@ -23,7 +23,7 @@ entryFiles.forEach((file) => {
   );
 });
 
-const baseConfig = {
+const webpackBaseConfig = {
   entry: entryPages,
   output: {},
   resolve: {
@@ -116,7 +116,7 @@ const baseConfig = {
       maxInitialRequests: 10, // 入口点的最大并行请求数
       minSize: 20000, // 模块大于 20KB 才进行代码拆分
       cacheGroups: {
-        vendors: {
+        vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors', // 打包后的文件名
           priority: 20, // 优先级，数字越大，优先级越高，node_modules 的优先级要比 common 高，保证第三方库不会被归为 common
@@ -136,4 +136,4 @@ const baseConfig = {
   },
 };
 
-module.exports = baseConfig;
+module.exports = webpackBaseConfig;
