@@ -1,5 +1,8 @@
 module.exports = (app) => {
   const BaseService = require('./base')(app);
+  const modelList = require('../../model')(app);
+  console.log(JSON.stringify(modelList));
+
   return class ProjectService extends BaseService {
     async getList() {
       return [
