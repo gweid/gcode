@@ -7,6 +7,7 @@ const { sep } = path;
 // project 继承 model 的数据结构，project 可以覆盖 model 的同名字段
 const projectExtendModel = (model = {}, project = {}) => {
   // 实现 project 继承 model 的数据结构
+  // lodash 的 merge 默认不会合并数组，而是直接替换，所以使用  使用 _.mergeWith + 自定义函数 来处理数组合并的特殊情况
   return _.mergeWith({}, model, project, (modelValue, projValue) => {
     // 处理数组合并的特殊情况
     if (Array.isArray(modelValue) && Array.isArray(projValue)) {
