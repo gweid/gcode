@@ -71,6 +71,8 @@ function start(options = {}) {
   } catch (error) {
     console.log(error);
   }
+
+  return app;
 }
 
 module.exports = {

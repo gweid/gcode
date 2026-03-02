@@ -8,7 +8,8 @@
     "dev": "cross-env _ENV=local nodemon ./index.js",
     "test": "cross-env _ENV=test node ./index.js",
     "prod": "cross-env _ENV=prod node ./index.js",
-    "debug": "cross-env _ENV=local node ./index.js",
+    "debug": "cross-env _ENV=local PORT=3079 node ./index.js",
+    "mocha": "cross-env _ENV=local PORT=3080 mocha 'test/**/*.test.js'",
     "build:dev": "node --max-old-space-size=4096 ./app/webpack/dev.js",
     "build:prod": "node ./app/webpack/prod.js"
   },
@@ -59,7 +60,7 @@
     "@babel/plugin-transform-runtime": "7.1.0",
     "@babel/preset-env": "7.4.5",
     "assert": "2.0.0",
-    "babel-eslint": "10.0.2",
+    "@babel/eslint-parser": "^7.24.0",
     "babel-loader": "8.0.4",
     "clean-webpack-plugin": "^0.1.19",
     "consoler": "^0.2.0",
