@@ -3,13 +3,6 @@ module.exports = (app) => {
   const modelList = require('../../model')(app);
 
   return class ProjectService extends BaseService {
-    async getList() {
-      return [
-        { id: 1, name: 'Project Alpha', desc: 'First project' },
-        { id: 2, name: 'Project Beta', desc: 'Second project' },
-      ];
-    }
-
     async getModelList() {
       return modelList;
     }
