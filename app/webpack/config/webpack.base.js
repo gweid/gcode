@@ -95,7 +95,7 @@ const webpackBaseConfig = {
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(process.cwd(), './app/public/404.html'),
+          from: path.resolve(process.cwd(), './app/public/entry.404.html'),
           to: path.resolve(process.cwd(), './app/public/dist'),
         },
       ],

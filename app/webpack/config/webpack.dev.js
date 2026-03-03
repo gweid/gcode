@@ -24,7 +24,7 @@ const WATCH_IGNORED = new RegExp(
 
 const DEV_SERVER_CONFIG = {
   HOST: '127.0.0.1',
-  PORT: 9002,
+  PORT: 9003,
   HMR_PATH: '__webpack_hmr', // 官方规定
   TIMEOUT: 20000,
 };
@@ -44,7 +44,7 @@ const webpackDevConfig = merge.smart(webpackBaseConfig, {
     filename: 'js/[name]_[contenthash:8].bundle.js',
     path: path.resolve(process.cwd(), './app/public/dist/dev'),
     // 打包出来的 html 文件引用资源的公共路径前缀
-    // <script src="/dist/dev/js/entry.page1_xxxxxxxx.bundle.js"></script>
+    // <script src="/dist/dev/js/entry.xxx_xxxxxxxx.bundle.js"></script>
     publicPath: `http://${DEV_SERVER_CONFIG.HOST}:${DEV_SERVER_CONFIG.PORT}/public/dist/dev`,
     crossOriginLoading: 'anonymous', // 不带凭据(credential) 允许跨域加载
     globalObject: 'this', // 解决 web worker 环境下无法使用 window 对象的问题
