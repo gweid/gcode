@@ -29,5 +29,15 @@ module.exports = (app) => {
         return preList;
       }, []);
     }
+
+    /**
+     * 根据 projKey 获取项目配置
+     * @param {*} projKey
+     */
+    async getProject(projKey) {
+      const target = modelList.find((item) => item.project[projKey]);
+
+      return target && target.project[projKey];
+    }
   };
 };

@@ -51,5 +51,24 @@ module.exports = (app) => {
 
       this.success(ctx, dtoProjList);
     }
+
+    /**
+     * 根据 projKey 获取项目配置
+     * @param {*} ctx
+     */
+    async getProject(ctx) {
+      const { project: projectService } = this.services;
+
+      const { proj_key: projKey } = ctx.request.query;
+
+      const projConfig = await projectService.getProject(projKey);
+
+      if (!projConfig) {
+        this.fail(ctx, '获取项目异常', 50000);
+        return;
+      }
+
+      this.success(ctx, projConfig);
+    }
   };
 };
