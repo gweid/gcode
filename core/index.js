@@ -20,7 +20,7 @@ function start(options = {}) {
   app.basePath = process.cwd();
 
   // 业务路径：app，sep 主要是兼容不同平台的 /
-  app.businessPath = path.resolve(app.basePath, `.${sep}app${sep}server`);
+  app.businessPath = path.resolve(app.basePath, `.${sep}server`);
   console.log(`-- [start] businessPath: ${app.businessPath} --`);
 
   app.env = env();
