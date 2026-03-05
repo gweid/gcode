@@ -3,6 +3,58 @@
 一个企业级全栈应用框架
 
 
+
+项目结构：
+
+```
+GCode
+├── core   
+│   ├── loaders
+│   │   ├── config.js
+│   │   ├── controller.js
+│   │   ├── service.js
+│   │   ├── extend.js
+│   │   ├── middleware.js
+│   │   ├── router.js
+│   │   ├── router-schema.js
+│   │   └── router-schema.js
+│   ├── env.js
+│   └── index.js
+├── app 
+│   ├── public
+│   ├── src
+│   │   ├── assets
+│   │   ├── component
+│   │   ├── pages
+│   │   ├── └── dashboard
+│   │   ├── store
+│   │   ├── utils
+│   │   └── boot.js
+│   └── webpack
+├── server 
+│   ├── controller
+│   ├── service
+│   ├── extend
+│   ├── middleware
+│   ├── router
+│   ├── router-schema
+│   └── middleware.js 
+├── model
+│   ├── business
+│   └── index.js
+├── config
+│   ├── config.default.js
+│   ├── config.local.js
+│   ├── config.test.js
+│   └── config.prod.js 
+├── logs 
+├── test                                    
+├── index.js
+├── package.json
+└── readme.md
+```
+
+
 ## model
 
 通过一个个 model 配置去生成项目（model ---> DSL ---> 项目）。基于领域模型设计。例子：
