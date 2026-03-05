@@ -21,6 +21,7 @@ module.exports = {
             key: 'coupon',
             name: '优惠券',
             menuType: 'module',
+            moduleType: 'custom',
             customConfig: {
               path: '/todo',
             },
@@ -29,6 +30,7 @@ module.exports = {
             key: 'limited',
             name: '限量购',
             menuType: 'module',
+            moduleType: 'custom',
             customConfig: {
               path: '/todo',
             },
@@ -37,6 +39,7 @@ module.exports = {
             key: 'festival',
             name: '节日活动',
             menuType: 'module',
+            moduleType: 'custom',
             customConfig: {
               path: '/todo',
             },

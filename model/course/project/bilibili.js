@@ -8,7 +8,7 @@ module.exports = {
       name: '视频管理（B站）',
     },
     {
-      key: 'course-materials',
+      key: 'resource',
       name: '课程资料',
       menuType: 'module',
       moduleType: 'sider',
