@@ -31,7 +31,7 @@ const handleUserCommand = () => {};
           <slot name="setting-content" />
           <img src="./asserts/avatar.png" class="avatar" />
           <el-dropdown @command="handleUserCommand">
-            <span>
+            <span class="setting-list">
               {{ userName }}
               <el-icon class="el-icon--right">
                 <arrow-down />
@@ -90,6 +90,14 @@ const handleUserCommand = () => {};
           height: 32px;
           border-radius: 50%;
           margin: 0 5px 0 10px;
+        }
+
+        .setting-list {
+          margin-left: 4px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          outline: none;
         }
       }
     }

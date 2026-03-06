@@ -45,7 +45,7 @@ module.exports = (app) => {
       const projList = await projectService.getList(projKey);
 
       const dtoProjList = projList.map((item) => {
-        const { key, name, desc, homePage } = item;
+        const { modelKey, key, name, desc, homePage } = item;
         return { modelKey, key, name, desc, homePage };
       });
 

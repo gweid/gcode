@@ -1,0 +1,15 @@
+import { ref } from 'vue';
+import { defineStore } from 'pinia';
+
+export const useProjectStore = defineStore('project', () => {
+  const projectList = ref([]);
+
+  const setProjectList = (list) => {
+    projectList.value = list;
+  };
+
+  return {
+    projectList,
+    setProjectList,
+  };
+});
