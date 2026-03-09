@@ -72,13 +72,13 @@ GCode
       key: '',
       name: '',
       menuType: '', // group | module
-      // menuType 是 group 的时候，有子菜单
+      // menuType 是 group 的时候，有头部子菜单
       subMunu: [
         {}
       ],
       // 当 menuType == module 时，可填
       moduleType: '', // sider | iframe | custom | schema
-      // 当 moduleType === sider 时
+      // 当 moduleType === sider 时，说明有左侧菜单
       siderConfig: {
         menu: [
           {} // 可递归 menuItem（里面不能再配置 moduleType === sider）
