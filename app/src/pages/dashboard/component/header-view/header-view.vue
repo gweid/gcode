@@ -1,25 +1,73 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watch, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import { ArrowDown } from '@element-plus/icons-vue';
 import { useMenuStore } from '@store/menu';
 import { useProjectStore } from '@store/project';
 import HeaderContainer from '@component/header-container/header-container.vue';
 import SubMenu from './sub-menu.vue';
 
+const route = useRoute();
 const menuStore = useMenuStore();
 const projectStore = useProjectStore();
-
-const activeKey = ref('');
-
-const onMenuSelect = () => {};
-
-const handleProjCommand = () => {};
 
 defineProps({
   projName: {
     type: String,
     default: '',
   },
+});
+
+const emit = defineEmits(['menu-select']);
+
+const activeKey = ref('');
+
+const setActiveKey = () => {
+  const menuItem = menuStore.findMenuItem({
+    key: 'key',
+    value: route.query.key,
+  });
+
+  activeKey.value = menuItem?.key;
+};
+
+const onMenuSelect = (menuKey) => {
+  const menuItem = menuStore.findMenuItem({
+    key: 'key',
+    value: menuKey,
+  });
+
+  emit('menu-select', menuItem);
+};
+
+watch(
+  () => route.query.key,
+  () => {
+    setActiveKey();
+  },
+);
+
+watch(
+  () => menuStore.menuList,
+  () => {
+    setActiveKey();
+  },
+  { deep: true },
+);
+
+const handleProjCommand = (projKey) => {
+  const projItem = projectStore.projectList.find((item) => item.key === projKey);
+
+  if (!projItem || !projItem.homePage) return;
+
+  const { origin, pathname } = window.location;
+
+  window.location.replace(`${origin}${pathname}#${projItem.homePage}`);
+  window.location.reload();
+};
+
+onMounted(() => {
+  setActiveKey();
 });
 </script>
 

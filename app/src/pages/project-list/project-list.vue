@@ -6,7 +6,7 @@ import HeaderContainer from '@component/header-container/header-container.vue';
 const loading = ref(false);
 const modelList = ref([]);
 
-const getModellist = async () => {
+const getModelList = async () => {
   loading.value = true;
 
   const res = await request({
@@ -25,11 +25,12 @@ const getModellist = async () => {
 };
 
 const onEnter = (proj) => {
-  console.log('进入项目:', proj.name);
+  const { origin } = window.location;
+  window.open(`${origin}/view/dashboard#${proj.homePage}`);
 };
 
 onMounted(() => {
-  getModellist();
+  getModelList();
 });
 </script>
 
