@@ -72,7 +72,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <HeaderContainer :title="projName">
+  <header-container :title="projName">
     <template #menu-content>
       <el-menu :default-active="activeKey" :ellipsis="false" mode="horizontal" @select="onMenuSelect">
         <template v-for="item in menuStore.menuList" :key="item.key">
@@ -104,10 +104,10 @@ onMounted(() => {
       </el-dropdown>
     </template>
     <template #main-content>
-      <!-- 这里是插槽透传，透传到 HeaderContainer 中 -->
+      <!-- 这里是插槽透h，透传到 header-container 中 -->
       <slot name="main-content" />
     </template>
-  </HeaderContainer>
+  </header-container>
 </template>
 
 <style lang="less" scoped>

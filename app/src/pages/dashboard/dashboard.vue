@@ -74,11 +74,11 @@ onMounted(() => {
 
 <template>
   <el-config-provider :locale="zhCn">
-    <HeaderView :proj-name="projName" @menu-select="onMenuSelect">
+    <header-view :proj-name="projName" @menu-select="onMenuSelect">
       <template #main-content>
         <router-view />
       </template>
-    </HeaderView>
+    </header-view>
   </el-config-provider>
 </template>
 
