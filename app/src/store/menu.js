@@ -30,9 +30,22 @@ export const useMenuStore = defineStore('menu', () => {
     }
   };
 
+  const findFirstMenuItem = (list = menuList.value) => {
+    if (!list || !list[0]) return;
+
+    let firstMenuItem = list[0];
+
+    if (firstMenuItem.subMenu) {
+      firstMenuItem = findFirstMenuItem(firstMenuItem.subMenu);
+    }
+
+    return firstMenuItem;
+  };
+
   return {
     menuList,
     setMenuList,
     findMenuItem,
+    findFirstMenuItem,
   };
 });

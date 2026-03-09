@@ -21,15 +21,15 @@ const routes = [
     component: () => import('./component/sider-view/sider-view.vue'),
     children: [
       {
-        path: '/iframe',
+        path: 'iframe',
         component: () => import('./component/iframe-view/iframe-view.vue'),
       },
       {
-        path: '/schema',
+        path: 'schema',
         component: () => import('./component/schema-view/schema-view.vue'),
       },
       {
-        path: '/todo',
+        path: 'todo',
         component: () => import('./todo/todo.vue'),
       },
     ],

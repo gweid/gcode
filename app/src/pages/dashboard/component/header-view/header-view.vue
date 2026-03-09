@@ -76,7 +76,7 @@ onMounted(() => {
     <template #menu-content>
       <el-menu :default-active="activeKey" :ellipsis="false" mode="horizontal" @select="onMenuSelect">
         <template v-for="item in menuStore.menuList" :key="item.key">
-          <SubMenu v-if="item.subMenu && item.subMenu.length > 0" :menu-item="item" />
+          <sub-menu v-if="item.subMenu && item.subMenu.length > 0" :menu-item="item" />
           <el-menu-item v-else :index="item.key">
             {{ item.name }}
           </el-menu-item>

@@ -82,4 +82,8 @@ onMounted(() => {
   </el-config-provider>
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+:deep(.el-main) {
+  padding: 0;
+}
+</style>

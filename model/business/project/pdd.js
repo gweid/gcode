@@ -4,10 +4,6 @@ module.exports = {
   homePage: '/todo?proj_key=pdd&key=product',
   menu: [
     {
-      key: 'product',
-      name: '商品管理（拼多多）',
-    },
-    {
       key: 'client',
       name: '客户管理（拼多多）',
     },
@@ -36,8 +32,83 @@ module.exports = {
               path: 'https://www.baidu.com',
             },
           },
+          {
+            key: 'categories',
+            name: '分类数据',
+            menuType: 'group',
+            subMenu: [
+              {
+                key: 'category-1',
+                name: '一级分类',
+                menuType: 'module',
+                moduleType: 'custom',
+                customConfig: {
+                  path: '/todo',
+                },
+              },
+              {
+                key: 'category-2',
+                name: '二级分类',
+                menuType: 'module',
+                moduleType: 'iframe',
+                iframeConfig: {
+                  path: 'https://www.baidu.com',
+                },
+              },
+            ],
+          },
         ],
       },
+    },
+    {
+      key: 'shop-setting',
+      name: '店铺设置',
+      menuType: 'group',
+      subMenu: [
+        {
+          key: 'info-setting',
+          name: '店铺信息',
+          menuType: 'module',
+          moduleType: 'custom',
+          customConfig: {
+            path: '/todo',
+          },
+        },
+        {
+          key: 'quality-setting',
+          name: '店铺资质',
+          menuType: 'module',
+          moduleType: 'iframe',
+          customConfig: {
+            path: 'https://www.baidu.com',
+          },
+        },
+        {
+          key: 'categories',
+          name: '分类数据',
+          menuType: ' group',
+          subMenu: [
+            {
+              key: 'category-1',
+              name: '一级分类',
+              menuType: 'module',
+              moduleType: 'custom',
+              customConfig: {
+                path: '/todo',
+              },
+            },
+            {
+              key: 'category-2',
+              name: '二级分类',
+              menuType: 'module',
+              moduleType: 'iframe',
+              iframeConfig: {
+                path: 'https://www.baidu.com',
+              },
+            },
+          ],
+        },
+      ],
     },
   ],
 };

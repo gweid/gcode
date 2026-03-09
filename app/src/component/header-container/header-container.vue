@@ -103,9 +103,6 @@ const handleUserCommand = () => {};
       }
     }
   }
-
-  .main-container {
-  }
 }
 
 :deep(.header-container) {
