@@ -124,11 +124,10 @@ const webpackBaseConfig = {
           reuseExistingChunk: true, // 复用已有的公共 chunk
         },
         common: {
-          test: /[\\/]components|utils[\\/]/, // 匹配到 components、utils 目录下的模块
+          test: /[\\/]component|utils[\\/]/, // 匹配到 components、utils 目录下的模块
           name: 'common',
           minChunks: 2, // 模块至少被两个不同的入口引用才会被打包到 common chunk 中
-          priority: 10,
-          enforce: true,
+          priority: 10, // 优先级
           reuseExistingChunk: true, // 复用已有的公共 chunk
         },
       },

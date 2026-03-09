@@ -11,10 +11,10 @@ const prodConfig = {
   mode: 'production',
   output: {
     filename: 'js/[name]_[contenthash:8].bundle.js',
-    path: path.resolve(process.cwd(), './app/public/dist/prod'),
+    path: path.resolve(process.cwd(), './app/public/dist/prod/'),
     // 打包出来的 html 文件引用资源的公共路径前缀
     // <script src="/dist/prod/js/entry.xxx_xxxxxxxx.bundle.js"></script>
-    publicPath: '/dist/prod',
+    publicPath: '/dist/prod/',
     crossOriginLoading: 'anonymous', // 不带凭据(credential) 允许跨域加
   },
   module: {

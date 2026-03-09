@@ -81,6 +81,7 @@ const handleUserCommand = () => {};
       }
 
       .menu-panel {
+        margin: 0 24px;
         flex: 1;
       }
 
