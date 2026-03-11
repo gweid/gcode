@@ -7,7 +7,7 @@ module.exports = {
       key: 'order',
       moduleType: 'iframe',
       iframeConfig: {
-        path: 'https://www.baidu.com',
+        path: 'https://ippure.com',
       },
     },
     {

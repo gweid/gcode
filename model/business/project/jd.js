@@ -23,7 +23,7 @@ module.exports = {
           menuType: 'module',
           moduleType: 'iframe',
           customConfig: {
-            path: 'https://www.baidu.com',
+            path: 'https://ippure.com',
           },
         },
         {
@@ -46,7 +46,7 @@ module.exports = {
               menuType: 'module',
               moduleType: 'iframe',
               iframeConfig: {
-                path: 'https://www.baidu.com',
+                path: 'https://ippure.com',
               },
             },
           ],

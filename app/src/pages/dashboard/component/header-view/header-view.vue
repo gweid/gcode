@@ -41,14 +41,7 @@ const onMenuSelect = (menuKey) => {
 };
 
 watch(
-  () => route.query.key,
-  () => {
-    setActiveKey();
-  },
-);
-
-watch(
-  () => menuStore.menuList,
+  [() => route.query.key, () => menuStore.menuList],
   () => {
     setActiveKey();
   },
