@@ -5,7 +5,7 @@ import { ArrowDown } from '@element-plus/icons-vue';
 import { useMenuStore } from '@store/menu';
 import { useProjectStore } from '@store/project';
 import HeaderContainer from '@component/header-container/header-container.vue';
-import SubMenu from './sub-menu.vue';
+import SubMenu from './sub-menu/sub-menu.vue';
 
 const route = useRoute();
 const menuStore = useMenuStore();

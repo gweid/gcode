@@ -3,7 +3,7 @@ import { ref, watch, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useMenuStore } from '@store/menu.js';
 import SiderContainer from '@component/sider-container/sider-container.vue';
-import SubMenu from './sub-menu.vue';
+import SubMenu from './sub-menu/sub-menu.vue';
 
 const router = useRouter();
 const route = useRoute();
