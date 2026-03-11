@@ -6,6 +6,12 @@ module.exports = {
     {
       key: 'client',
       name: '客户管理（拼多多）',
+      menuType: 'module',
+      moduleType: 'schema',
+      schemaConfig: {
+        api: '/api/client',
+        schema: {},
+      },
     },
     {
       key: 'info-search',
@@ -62,6 +68,16 @@ module.exports = {
                 moduleType: 'iframe',
                 iframeConfig: {
                   path: 'https://ippure.com',
+                },
+              },
+              {
+                key: 'category-3',
+                name: '三级分类',
+                menuType: 'module',
+                moduleType: 'schema',
+                schemaConfig: {
+                  api: '/api/client',
+                  schema: {},
                 },
               },
             ],
