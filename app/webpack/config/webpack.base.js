@@ -32,6 +32,7 @@ const webpackBaseConfig = {
       '@src': path.resolve(process.cwd(), './app/src'),
       '@assets': path.resolve(process.cwd(), './app/src/assets'),
       '@component': path.resolve(process.cwd(), './app/src/component'),
+      '@hook': path.resolve(process.cwd(), './app/src/hook'),
       '@store': path.resolve(process.cwd(), './app/src/store'),
       '@utils': path.resolve(process.cwd(), './app/src/utils'),
     },

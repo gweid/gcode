@@ -1,7 +1,12 @@
 <script setup></script>
 
 <template>
-  <div class="wrapper">tabel-panel</div>
+  <el-card class="table-panel" />
 </template>
 
-<style scoped></style>
+<style lang="less" scoped>
+.table-panel {
+  flex: 1;
+  margin: 12px;
+}
+</style>

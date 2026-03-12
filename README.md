@@ -105,6 +105,7 @@ GCode
               // 字段在 table 中的相关配置（比如支持 element-plus 的 table 的字段）
               tableOption: {
                 ...elTableColumnOption, // element-plus 的 table 的字段
+                toFixed: 0, // 保留小数点后几位
                 visiable: true, // 自定义 visiable 来决定当前字段是否展示在 table 中
               },
               searchOption: {}
@@ -113,8 +114,18 @@ GCode
         },
         // table 相关配置
         tableConfig: {
-          headerButtons: [],
-          rowButtons: []
+          headerButtons: [{
+            label: '', // 按钮中文名
+            eventKey: '', // 按钮事件名
+            eventOption: {}, // 按钮事件配置
+            ...elButtonConfig, // 标准 el-button 配置
+          }],
+          rowButtons: [{
+            label: '', // 按钮中文名
+            eventKey: '', // 按钮事件名
+            eventOption: {}, // 按钮事件配置
+            ...elButtonConfig, // 标准 el-button 配置
+          }]
         },
         searchConfig: {}, // search-bar 相关配置
         components: {}, // 模块组件
