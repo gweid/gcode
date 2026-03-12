@@ -1,14 +1,17 @@
 <script setup>
-import { onMounted } from 'vue';
-// import { useRoute } from 'vue-router';
+import { provide } from 'vue';
 import SearchPanel from './search-panel/search-panel.vue';
 import TablePanel from './table-panel/table-panel.vue';
-// import { useSchema } from './hook/use-schema';
+import { useSchema } from './hook/use-schema';
 
-// const route = useRoute();
-// const { api } = useSchema();
+const { api, tableSchema, tableConfig } = useSchema();
 
-onMounted(() => {});
+// 提供数据（方便做透传）
+provide('schemaViewData', {
+  api,
+  tableSchema,
+  tableConfig,
+});
 </script>
 
 <template>
